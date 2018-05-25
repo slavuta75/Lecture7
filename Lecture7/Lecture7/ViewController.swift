@@ -46,8 +46,13 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         // для отображения в памяти только нескольких ячеек
  //       let cell = tableView.dequeueReusableCell(withIdentifier: "cellDetail", for: indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: (indexPath.section == 0 ? "cellDetail" : "cell"), for: indexPath)
-        if indexPath.section == 0 {
+        var cell = tableView.dequeueReusableCell(withIdentifier: (indexPath.section == 0 ? "cellDetail" : "cell"), for: indexPath)
+        
+        if indexPath.section == 1 && indexPath.row == 1 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "switchCell", for: indexPath)
+        (cell as? SwichTableViewCell)?.switchValue.isOn = true
+        }
+        else if indexPath.section == 0 {
             cell.textLabel?.text = "Slava"
         cell.textLabel?.textColor = UIColor.blue
         cell.detailTextLabel?.text = "\(indexPath.row)"

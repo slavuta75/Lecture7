@@ -10,6 +10,7 @@ import UIKit
 
 class SwichTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var switchValue: UISwitch!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
